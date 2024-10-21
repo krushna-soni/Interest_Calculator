@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css">
+</head> 
+<body>
+    <button id="resetButton" onclick="resetPage()">🔄</button>
+    <div id="interest-box">
+        <input type="number" id="monthlyInterest" min="0" step="1" placeholder="%">
+    </div>
+
+    <div class="box">
+        <div class="box-heading"></div>
+        <label for="amount">
+            <input type="number" id="amount" min="0" placeholder="रुपये (₹)">
+
+        <div class="box-heading"></div>
+        <div class="date-input">
+            <input type="number" id="startDay" min="1" max="31" class="date-field" placeholder="दिवस">
+            <input type="number" id="startMonth" min="1" max="12" class="date-field" placeholder="महिना">
+            <input type="number" id="startYear" min="1900" class="year-input" placeholder="वर्ष">
+        </div>
+        <br>
+        <label>
+            <input type="radio" name="endDateOption" id="todayCheckbox" checked onclick="toggleManualEndDate(); updateResult(); toggleOptions(false);"> आज पर्यंत
+        </label>
+        <br>
+        <label>
+            <br>
+            <input type="radio" name="endDateOption" id="manualEndDateCheckbox" onclick="toggleManualEndDate(); updateResult(); toggleOptions(false);"> शेवटची तारीख टाका
+            <br>
+        </label>
+        <div id="manualEndDate" style="display:none;">
+            <br>
+            <div class="date-input">
+                <input type="number" id="endDay" min="1" max="31" class="date-field" placeholder="दिवस">
+                <input type="number" id="endMonth" min="1" max="12" class="date-field" placeholder="महिना">
+                <input type="number" id="endYear" min="1900" class="year-input" placeholder="वर्ष">
+            </div>
+        </div>
+        <br>
+        <button id="calculateButton" class="button" onclick="checkFieldsBeforeCalculate()">⏬</button>
+        <div id="result"></div>
+        <div id="options">
+            <div class="option-button-group">
+                <button class="option-button" id="option1" onclick="setOption(1)">= दिवस</button>
+                <button class="option-button" id="option30" onclick="setOption(30)">30 दिवस(4)</button>
+                <button class="option-button" id="option21" onclick="setOption(21)">21 दिवस(3)</button>
+            </div>
+            <div class="option-button-group">
+                <button class="option-button" id="option15" onclick="setOption(15)">15 दिवस(2)</button>
+                <button class="option-button" id="option7" onclick="setOption(7)">7 दिवस(1)</button>
+                <button class="option-button" id="option0" onclick="setOption(0)">0 दिवस</button>
+            </div>
+        </div>
+
+        <hr id="durationLine">
+
+        <div id="additionalButtons" style="display: none;">
+            <button class="option-button larger-button" id="countButton" onclick="toggleResultSection()">हिसाब करा</button>
+        </div>
+    </div>
+
+    <div id="resultSection">
+        <div class="result-title"></div>
+        <br>
+        <div class="date-range"></div>
+        <div class="result-duration"></div>
+        <div class="additional-calculations"></div> 
+    </div>
+    <div id="watermark">@Created by Krushna Soni</div>
+    <script src="index.js"></script
+</body>
+</html>
